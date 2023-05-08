@@ -34,13 +34,17 @@ singleRouter.delete('/', async (req, res) => {
 });
 
 /* GET todo. */
-singleRouter.get('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+singleRouter.get('/:id', async (req, res) => {
+  res.send(req.todo);
 });
 
 /* PUT todo. */
-singleRouter.put('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+singleRouter.put('/:id', async (req, res) => {
+  const { todo } = req;
+  todo.text = req.body.text;
+  todo.done = req.body.done;
+  await todo.save();
+  res.send(todo);
 });
 
 router.use('/:id', findByIdMiddleware, singleRouter)
