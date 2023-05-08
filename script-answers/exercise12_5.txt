@@ -1,0 +1,13 @@
+
+ubuntu@arm2:~/part12-containers-applications/todo-app/todo-backend$ curl localhost:3000
+{"visits":1}ubuntu@arm2:~/part12-containers-applications/todo-app/todo-backend$ curl localhost:3000
+{"visits":2}ubuntu@arm2:~/part12-containers-applications/todo-app/todo-backend$ 
+
+
+ubuntu@arm2 ~/p/t/todo-backend (main)> docker run -p 3000:3000 todo-backend
+
+> todo-express-backend@0.0.0 start
+> node ./bin/www
+
+GET / 200 2.901 ms - 12
+GET / 200 1.834 ms - 12
