@@ -1,0 +1,71 @@
+Script started on 2023-05-08 13:43:35+00:00 [TERM="screen-256color" TTY="/dev/pts/8" COLUMNS="112" LINES="37"]
+[?2004h[38;5;202m[38;5;245mubuntu[00m@[38;5;172marm2[00m:[38;5;5m~/part12-containers-applications/script-answers[00m$ [3mdocker ps | grep mongo[23mdocker ps | grep mongo
+[?2004lbe8de33fa8c4   [01;38;5;202m[Kmongo[m[K                                        "docker-entrypoint.s…"   35 minutes ago   Up 32 minutes           0.0.0.0:3456->27017/tcp, :::3456->27017/tcp                       todo-backend_[01;38;5;202m[Kmongo[m[K_1
+[?2004h[38;5;202m[38;5;245mubuntu[00m@[38;5;172marm2[00m:[38;5;5m~/part12-containers-applications/script-answers[00m$ [3mdocker exec -it be8de33fa8c4 mongosh -u the_usernam[23m[3me[23m[3m -p the_password[23mM[38;5;202m[38;5;245mubuntu[00m@[38;5;172marm2[00m:[38;5;5m~/part12-containers-applications/script-answers[00m$ docker exec -it be8de33fa8c4 mongosh -u the_username -p the_password
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	6458fc95a8b3723f666ed3fd
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.2[0m
+Using MongoDB:		6.0.5
+[1m[33mUsing Mongosh[0m:		1.8.2
+
+For mongosh info see: [1mhttps://docs.mongodb.com/mongodb-shell/[0m
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2023-05-08T13:11:35.448+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2023-05-08T13:11:36.468+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1m[33m------[0m
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+   
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+   
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m        108.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   72.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.insertOne({test[33mtest[39m: [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, d[36mdo[39mdone[33mdone[39m: fals[33mfalse[39m})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId("6458fca6a8b3723f666ed3fe")
+}
+[1G[0Jthe_database> [15Gdb.todos.find({})
+[
+  {
+    _id: ObjectId("6458f4434e938d4ba2549209"),
+    done: [33mfalse[39m,
+    text: [32m'Write 34243code'[39m
+  },
+  {
+    _id: ObjectId("6458f4434e938d4ba254920a"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId("6458fc60f45b2af71a9738a5"),
+    test: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId("6458fca6a8b3723f666ed3fe"),
+    test: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+[?2004h[38;5;202m[38;5;245mubuntu[00m@[38;5;172marm2[00m:[38;5;5m~/part12-containers-applications/script-answers[00m$ exit
+[?2004lexit
+
+Script done on 2023-05-08 13:44:14+00:00 [COMMAND_EXIT_CODE="0"]
