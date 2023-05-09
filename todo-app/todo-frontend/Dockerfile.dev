@@ -7,3 +7,5 @@ COPY . .
 RUN npm install
 
 CMD ["npm", "start"]
+
+PORT 3000
